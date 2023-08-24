@@ -7,18 +7,32 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-  <nav class="navbar">
+
+  <nav>
+    <!-- Desktop menu -->
     <a href="#" id="logo">PRACTICE CARDS</a>
-    <ul class="nav_links">
+    <ul class="menu">
       <li><a href="#">Home</a></li>
       <li><a href="#">About</a></li>
       <li><a href="#">Services</a></li>
-      <li><a href="#">Login</a></li>
-      <li><a href="#">Sing Up</a></li>
     </ul>
-    <a href="#" id="dropDownMenu">☰</a>
+    <ul class="account">
+      <li><a href="#">Login</a></li>
+      <li><a href="#" id="sing-up">Sing Up</a></li>
+    </ul>
+    <!-- Movile menu -->
+    <label for="dp-menu" id="lbl-dp-menu">☰</label>
+    <input type="checkbox" style="display: none" name="dp-menu" id="dp-menu">
+    <ul class="dropdown-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+    </ul>
+    <ul class="dropdown-account">
+      <li><a href="#">Login</a></li>
+      <li><a href="#" id="sing-up">Sing Up</a></li>
+    </ul>
   </nav>
-  <header></header>
 
   <section class="container">
 
@@ -50,8 +64,10 @@
     </div>
 
   </section>
+
   <footer>
     <p>Hecho con ❤️ por @jdgiraldot</p>
   </footer>
+  
 </body>
 </html>

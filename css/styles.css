@@ -6,8 +6,16 @@
     list-style: none;
 }
 
+:root {
+    --color-primary: #2fb4cc;
+    --color-secondary: whitesmoke;
+}
+
+/* Estilos para ubicar las secciones principales de la página */
+
 body {
     font-family: sans-serif;
+    background-color: var(--color-secondary);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -15,87 +23,82 @@ body {
     align-items: center;
 }
 
-.navbar {
+/* Estilos para el menú de navegación y sus modificaciones segun la pantalla */
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1100px;
-    padding: 8px 40px;
+    max-width: 1000px;
+    padding: 8px 20px;
     border-radius: 4px;
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
 }
-.navbar a {
-    color: #2fb4cc;
-    padding: 4px 8px;
+nav a, nav label {
+    padding: 8px 16px;
+    margin: 0px 4px;
+    color: var(--color-primary);
+    border-radius: 4px;
+    transition: all 400ms ease;
+}
+nav a:hover, nav label {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
 }
 
-.nav_links {
-    width: auto;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-.nav_links a {
-    min-width: 90px;
-    display: flex;
+.menu, .account {
+    display: none;
     justify-content: center;
 }
 
-#logo {
-    min-width: 220px;
-    font-weight: bold;
-}
-#dropDownMenu {
-    min-width: 40px;
-    font-weight: bold;
-    text-align: center;
-    border: 1px solid #2fb4cc;
+.dropdown-menu {
+    position: fixed;
+    right: -120px;
+    width: 100px;
     border-radius: 4px;
+    background-color: var(--color-secondary);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: all 800ms ease;
+    top: 70px;
 }
 
-
-@media (max-width: 480px) {
-    body{
-        background-color: red;
-    }
-    .nav_links {
-        display: none;
-    }
-}
-@media (min-width: 480px) and (max-width: 767px) {
-    body{
-        background-color: orange;
-    }
-    .nav_links {
-        display: none;
-    }
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-    body{
-        background-color: yellow;
-    }
-    #dropDownMenu {
-        display: none;
-    }
-}
-@media (min-width: 1024px) and (max-width: 1279px) {
-    body{
-        background-color: yellowgreen;
-    }
-    #dropDownMenu {
-        display: none;
-    }
-}
-@media (min-width: 1280px) {
-    body{
-        background-color: green;
-    }
-    #dropDownMenu {
-        display: none;
-    }
+.dropdown-account {
+    position: fixed;
+    right: -120px;
+    width: 100px;
+    border-radius: 4px;
+    background-color: var(--color-secondary);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: all 800ms ease;
+    top: 180px;
 }
 
+.dropdown-menu a, .dropdown-account a {
+    margin: 0;
+    display: block;
+}
+
+#logo {
+    font-weight: bolder;
+}
+#sing-up {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+#sing-up:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+#dp-menu:checked ~ .dropdown-menu {
+    right: 2%;
+}
+#dp-menu:checked ~ .dropdown-account {
+    right: 2%;
+}
+
+/* Estilos para las Cards */
 
 .container {
     width: 100%;
@@ -132,7 +135,7 @@ body {
 
 .card .content p {
     line-height: 1.5;
-    color: #6a6a6a;
+    color: dimgray;
     margin: 16px 0px;
 }
 
@@ -143,7 +146,7 @@ body {
 .card .content a {
     text-decoration: none;
     display: inline-block;
-    padding: 10px;
+    padding: 8px 16px;
     color: #2fb4cc;
     border: 1px solid #2fb4cc;
     border-radius: 4px;
@@ -156,4 +159,32 @@ body {
 
 footer {
     margin: 16px;
+}
+
+/* Diseño responsivo para el menú de navegación */
+
+@media (min-width: 480px) {
+    .account {
+        display: flex;
+    }
+    .dropdown-account {
+        display: none;
+    }
+    #dp-menu:checked ~ .dropdown-menu {
+        right: 2%;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .menu {
+        display: flex;
+    }
+    .dropdown-menu {
+        display: none;
+    }
+    #lbl-dp-menu {
+        display: none;
+    }
+
 }
